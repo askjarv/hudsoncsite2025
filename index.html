@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Hudson | Professional Services Architect</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom styles for a dark, cyber look */
+        :root {
+            --neon-blue: #00ffff;
+            --dark-bg: #10101a;
+            --dark-surface: #1a1a2e;
+            --text-light: #f0f0f5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Neon-style accent for key elements */
+        .neon-glow-text {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+        }
+
+        .neon-border {
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+        }
+
+        /* Custom scrollbar for desktop feel */
+        ::-webkit-scrollbar {
+            height: 8px; /* For horizontal scrolling */
+            width: 8px; /* For vertical scrolling */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a44;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a3a5e;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        /* Keyframe for subtle blinking text effect */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .blinking-cursor {
+            animation: blink 1s step-start infinite;
+        }
+
+        /* Styling for the horizontal carousel container */
+        .project-carousel {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+        }
+
+        .project-card-container {
+            flex: 0 0 auto;
+            width: 90vw; /* Take full width on mobile */
+            scroll-snap-align: start;
+            margin-right: 1.5rem; /* Spacing between cards */
+        }
+
+        @media (min-width: 640px) {
+            .project-card-container {
+                width: 45vw; /* Half width on small screens */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .project-card-container {
+                width: 300px; /* Fixed width on desktop, allowing multiple visible */
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#00ffff',
+                        'dark-bg': '#10101a',
+                        'dark-surface': '#1a1a2e',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="selection:bg-neon-blue selection:text-dark-bg">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-sm shadow-lg shadow-black/20">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold neon-glow-text">CHRIS HUDSON<span class="text-sm">_ARCHITECT</span></h1>
+            <nav id="main-nav" class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#about" class="hover:text-neon-blue transition duration-300">ABOUT</a>
+                <a href="#expertise" class="hover:text-neon-blue transition duration-300">EXPERTISE</a>
+                <a href="#projects" class="hover:text-neon-blue transition duration-300">CODEBASE</a>
+                <a href="#experience" class="hover:text-neon-blue transition duration-300">PROJECTS</a>
+                <a href="#contact" class="hover:text-neon-blue transition duration-300">CONTACT</a>
+            </nav>
+            <button id="menu-button" class="md:hidden text-neon-blue p-2 rounded-lg hover:bg-dark-surface transition duration-300">
+                <svg data-lucide="menu" class="w-6 h-6"></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-surface/95 border-t border-neon-blue/20">
+            <nav class="flex flex-col space-y-2 p-4 text-sm font-medium">
+                <a href="#about" class="p-2 hover:bg-dark-bg rounded transition duration-300">ABOUT</a>
+                <a href="#expertise" class="p-2 hover:bg-dark-bg rounded transition duration-300">EXPERTISE</a>
+                <a href="#projects" class="p-2 hover:bg-dark-bg rounded transition duration-300">CODEBASE</a>
+                <a href="#experience" class="p-2 hover:bg-dark-bg rounded transition duration-300">PROJECTS</a>
+                <a href="#contact" class="p-2 hover:bg-dark-bg rounded transition duration-300">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="section-padding min-h-[80vh] flex items-center">
+            <div class="max-w-4xl">
+                <p class="text-sm uppercase tracking-widest text-gray-400 mb-2">ACCESS LEVEL: SECURED</p>
+                <h2 class="text-5xl md:text-7xl font-extrabold leading-tight">
+                    <span class="neon-glow-text">CHRIS HUDSON</span>
+                    <br>
+                    <span class="text-gray-200">CYBERSECURITY ARCHITECT.</span>
+                </h2>
+                <h3 class="text-2xl md:text-4xl mt-4 font-light text-gray-400">
+                    Delivering Enterprise Compliance & Configuration Solutions
+                    <span class="blinking-cursor neon-glow-text">|</span>
+                </h3>
+                <p class="mt-8 text-lg max-w-2xl text-gray-300">
+                    10+ years experience securing critical OT environments, automating compliance (PCI-DSS, ISO 270001, CIS, MITRE ATT&CK), driving security consultancy projects across EMEA.
+                </p>
+                <div class="mt-10 space-x-4">
+                    <a href="#experience" class="inline-flex items-center px-6 py-3 border border-neon-blue text-sm font-medium rounded-lg text-dark-bg bg-neon-blue hover:bg-opacity-90 transition duration-300 shadow-lg shadow-neon-blue/40">
+                        Experience
+                        <svg data-lucide="arrow-right" class="w-4 h-4 ml-2"></svg>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 border border-gray-600 text-sm font-medium rounded-lg text-gray-300 hover:border-neon-blue hover:text-neon-blue transition duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section-padding border-t border-neon-blue/10">
+            <h2 class="text-3xl font-bold neon-glow-text mb-12 uppercase tracking-wider">ABOUT ME</h2>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="md:col-span-2 bg-dark-surface p-6 rounded-xl shadow-xl border border-neon-blue/20">
+                    <p class="text-gray-300 mb-4 text-lg">
+                        I am a seasoned Professional Services Architect focused on transforming complex security requirements into reliable, scalable, and automated solutions. My expertise is rooted in File Integrity Monitoring (FIM), Vulnerability Management (VM), and large-scale Security Configuration Management (SCM) deployments.
+                    </p>
+                    <p class="text-gray-400">
+                        Throughout my career at Fortra (Tripwire) and prior roles, I have consistently driven technical methodologies, delivered training, and led multi-consultant projects, ensuring enterprise-level compliance across challenging regulatory landscapes. My unique foundation, including a **Bachelor's Degree in Applied Psychology and Computing**, enables a comprehensive approach to both the technology and the human processes involved in enterprise security.
+                    </p>
+                    <div class="mt-6 p-4 bg-dark-bg rounded-lg neon-border/50">
+                        <p class="flex items-center text-sm font-semibold text-neon-blue">
+                            <svg data-lucide="trophy" class="w-4 h-4 mr-2"></svg>
+                            Key Recognition: Consultant of the Year (Tripwire) - Multiple Years
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <h3 class="text-xl font-semibold mb-4 text-neon-blue">CORE COMPETENCIES</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-300"><svg data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></svg>Problem-solving & Analysis</li>
+                        <li class="flex items-center text-gray-300"><svg data-lucide="layout-grid" class="w-5 h-5 mr-3 text-green-400"></svg>Technical Architecture</li>
+                        <li class="flex items-center text-gray-300"><svg data-lucide="users" class="w-5 h-5 mr-3 text-green-400"></svg>Training and Enablement</li>
+                        <li class="flex items-center text-gray-300"><svg data-lucide="command" class="w-5 h-5 mr-3 text-green-400"></svg>Project Leadership & Delivery</li>
+                        <li class="flex items-center text-gray-300"><svg data-lucide="file-text" class="w-5 h-5 mr-3 text-green-400"></svg>Documentation (Pre-sales, Technical)</li>
+                        <li class="flex items-center text-gray-300"><svg data-lucide="code" class="w-5 h-5 mr-3 text-green-400"></svg>Scripting (PowerShell and Python)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERTISE / SKILLS SECTION -->
+        <section id="expertise" class="section-padding border-t border-neon-blue/10">
+            <h2 class="text-3xl font-bold neon-glow-text mb-12 uppercase tracking-wider">TECHNICAL EXPERTISE</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Block 1: Security & Compliance -->
+                <div class="bg-dark-surface p-6 rounded-xl neon-border/20">
+                    <div class="flex items-center mb-4">
+                        <svg data-lucide="shield-half" class="w-8 h-8 neon-glow-text mr-3"></svg>
+                        <h3 class="text-xl font-bold">SECURITY & COMPLIANCE</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>File Integrity Monitoring (FIM)</li>
+                        <li>Vulnerability Management</li>
+                        <li>Security Configuration Management (SCM)</li>
+						<li>Reporting and Business Intelligence</li>
+                        <li>OT/ICS Security</li>
+                        <li class="font-semibold text-neon-blue">PCI-DSS, ISO 270001, CIS Benchmarks, SOX, ECC, Swift, MITRE</li>
+                    </ul>
+                </div>
+
+                <!-- Block 2: Platforms & Infrastructure -->
+                <div class="bg-dark-surface p-6 rounded-xl neon-border/20">
+                    <div class="flex items-center mb-4">
+                        <svg data-lucide="server" class="w-8 h-8 neon-glow-text mr-3"></svg>
+                        <h3 class="text-xl font-bold">PLATFORMS & INFRASTRUCTURE</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Microsoft Windows Server OS's</li>
+                        <li>Linux Server OS's (RHEL, OEL, SUSE, CentOS)</li>
+                        <li>Virtualization (VMware, HyperV, ProxMox)</li>
+                        <li>Network Infrastructure (FortiNet, Cisco, Palo Alto, Juniper)</li>
+                    </ul>
+                </div>
+
+                <!-- Block 3: Integration & Scripting -->
+                <div class="bg-dark-surface p-6 rounded-xl neon-border/20">
+                    <div class="flex items-center mb-4">
+                        <svg data-lucide="workflow" class="w-8 h-8 neon-glow-text mr-3"></svg>
+                        <h3 class="text-xl font-bold">INTEGRATION & AUTOMATION</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>PowerShell / Python Scripting</li>
+                        <li>(REST/SOAP) API Integrations</li>
+                        <li>Modern JavaScript (Online, 2024)</li>
+                        <li>Tool Integration Expertise: ServiceNow, Splunk, Tableau, Elastic Search, etc.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW PROJECTS / CODEBASE CAROUSEL SECTION -->
+        <section id="projects" class="section-padding border-t border-neon-blue/10">
+            <h2 class="text-3xl font-bold neon-glow-text mb-4 uppercase tracking-wider">COMMUNITY & CODEBASE</h2>
+            <p class="text-gray-400 mb-8 max-w-2xl">
+                A selection of personal projects, code snippets, and deep-dive technical articles demonstrating hands-on expertise in automation and security. Scroll horizontally to view more.
+            </p>
+
+            <div class="project-carousel">
+
+                <!-- Card 1: GitHub Project - PowerShell Automation -->
+                <div class="project-card-container">
+                    <a href="https://github.com/askjarv" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
+                        <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
+                            <svg data-lucide="github" class="w-8 h-8 text-neon-blue mb-4"></svg>
+                            <h4 class="text-xl font-bold text-gray-100 mb-2">Github</h4>
+                            <p class="text-gray-400 text-sm mb-4">
+                                GitHub repos I maintain covering useful tools I've developed over the years
+                            </p>
+                            <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-neon-blue/20 text-neon-blue">
+                                Code | Automation
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 2: Work Blogs -->
+                <div class="project-card-container">
+                    <a href="https://www.tripwire.com/profile/chris-hudson" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
+                        <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
+                            <svg data-lucide="book-open" class="w-8 h-8 text-neon-blue mb-4"></svg>
+                            <h4 class="text-xl font-bold text-gray-100 mb-2">State of Security</h4>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Frequent contributor to the Fortra State of Security blog with thought leadership and insights into the world of cybersecurity.
+                            </p>
+                            <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-yellow-400/20 text-yellow-400">
+                                Writing | Blog
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 3: Personal Blog -->
+                <div class="project-card-container">
+                    <a href="https://nextnextnextfinished.wordpress.com/" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
+                        <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
+                            <svg data-lucide="code" class="w-8 h-8 text-neon-blue mb-4"></svg>
+                            <h4 class="text-xl font-bold text-gray-100 mb-2">Next-Next-Next->Finished</h4>
+                            <p class="text-gray-400 text-sm mb-4">
+                                My personal blog covering the technical fun bits I get up to day to day
+                            </p>
+                            <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-green-400/20 text-green-400">
+                                Writing | Blog
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 4: Hypothetical Case Study (Template) -->
+                <div class="project-card-container">
+                    <a href="#" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
+                        <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
+                            <svg data-lucide="layout-template" class="w-8 h-8 text-neon-blue mb-4"></svg>
+                            <h4 class="text-xl font-bold text-gray-100 mb-2">OT Security Whitepaper</h4>
+                            <p class="text-gray-400 text-sm mb-4">
+                                A high-level technical overview of security considerations and segmentation strategies for modern Operational Technology (OT) networks.
+                            </p>
+                            <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-purple-400/20 text-purple-400">
+                                Document | ICS
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Note: Add more cards here following the same structure -->
+
+            </div>
+            <p class="text-center text-gray-600 text-sm mt-4">
+                Use the horizontal scroll or swipe to view all projects.
+            </p>
+        </section>
+
+        <!-- EXPERIENCE / PROJECTS SECTION -->
+        <section id="experience" class="section-padding border-t border-neon-blue/10">
+            <h2 class="text-3xl font-bold neon-glow-text mb-12 uppercase tracking-wider">PROJECT & EXPERIENCE HIGHLIGHTS</h2>
+
+            <!-- Main Role -->
+            <div class="mb-12 p-8 bg-dark-surface rounded-xl shadow-2xl neon-border/50">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-100">Senior Architect (EMEA)</h3>
+                        <p class="text-xl neon-glow-text">Fortra (Tripwire Product Suite)</p>
+                    </div>
+                    <p class="text-gray-400 mt-2 md:mt-0 md:text-right">2014 – Current</p>
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- Highlight 1: OT/ICS Project -->
+                    <div class="border-l-4 border-neon-blue pl-4">
+                        <h4 class="text-lg font-semibold text-gray-200 flex items-center mb-1">
+                            <svg data-lucide="lock" class="w-5 h-5 mr-2"></svg>
+                            Large Scale Project Work
+                        </h4>
+                        <p class="text-gray-400 text-sm">
+                            Managed multi-consultant teams to deliver a large-scale solutions (including an Industrial Control System (ICS) security solution securing over 70 critical sites in a contract valued at over $1M USD). A go to for colleagues needing deep technical insight and expertise, as well as a friendly, helping hand that doesn't like to say no to requests for help!
+                        </p>
+                    </div>
+
+                    <!-- Highlight 2: Compliance Automation -->
+                    <div class="border-l-4 border-neon-blue/50 pl-4">
+                        <h4 class="text-lg font-semibold text-gray-200 flex items-center mb-1">
+                            <svg data-lucide="zap" class="w-5 h-5 mr-2"></svg>
+                            Automated Compliance Reporting & Integrations
+                        </h4>
+                        <p class="text-gray-400 text-sm">
+                            Developed custom product extensions and applications to enhance the Tripwire suite, providing automated integrations with crucial third-party systems (e.g., ServiceNow, Splunk, BMC, Tableau, PowerBI) -   significantly streamlining reporting, automating critical business workflows and adding value to client security operations.
+                        </p>
+                    </div>
+
+                     <!-- Highlight 3: Consulting & Sales -->
+                     <div class="border-l-4 border-neon-blue/50 pl-4">
+                        <h4 class="text-lg font-semibold text-gray-200 flex items-center mb-1">
+                            <svg data-lucide="trending-up" class="w-5 h-5 mr-2"></svg>
+                            Consultancy & Revenue Generation
+                        </h4>
+                        <p class="text-gray-400 text-sm">
+                            Secured over $250,000USD in additional sales of Professional Services consultancy in a single quarter. Successfully engaged with 100+ customers across EMEA, extending security coverage and developing technical methodologies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Roles Timeline -->
+            <h3 class="text-xl font-bold neon-glow-text mb-6 mt-12">EARLIER ROLES AND EDUCATION</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <p class="text-gray-300 font-medium">Analyst | Codestone / UK (IaaS and SaaS Solution Provider)</p>
+                    <p class="text-gray-500 text-sm">2012–2014</p>
+                </div>
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <p class="text-gray-300 font-medium">Analyst | Blue Chip Data Systems (Technical IT & Networking)</p>
+                    <p class="text-gray-500 text-sm">2005–2012</p>
+                </div>
+                <div class="flex justify-between border-b border-gray-700 pb-2">
+                    <p class="text-gray-300 font-medium">Bachelor's Degree in Applied Psychology and Computing</p>
+                    <p class="text-gray-500 text-sm">2000–2004</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-padding border-t border-neon-blue/10">
+            <h2 class="text-3xl font-bold neon-glow-text mb-12 uppercase tracking-wider">CONNECT</h2>
+
+            <div class="max-w-xl mx-auto text-center bg-dark-surface p-8 rounded-xl shadow-2xl neon-border/50">
+                <p class="text-xl font-light text-gray-300 mb-6">
+                    Ready to discuss enterprise security architecture, compliance automation, or project leadership?
+                </p>
+
+                <div class="space-y-4">
+                    <a href="https://linkedin.com/in/christopherhudsonlinkedin/" target="_blank" class="block w-full px-6 py-3 border border-gray-600 text-lg font-medium rounded-lg text-gray-300 hover:border-neon-blue hover:text-neon-blue transition duration-300">
+                        <span class="flex items-center justify-center">
+                            <svg data-lucide="linkedin" class="w-5 h-5 mr-2"></svg>
+                            Connect on LinkedIn
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 py-8 border-t border-neon-blue/10 bg-dark-surface/50">
+        <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+            <p>2025 Chris Hudson.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for smooth scroll and mobile menu -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-button').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Function to handle scroll navigation (redundant due to 'scroll-behavior: smooth' but good for robustness)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Get the header height for accurate scrolling offset
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const offsetTop = targetElement.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
