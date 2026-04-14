@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Hudson | Professional Services Architect</title>
-    <!-- Load Tailwind CSS -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Lucide Icons -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Custom styles for a dark, cyber look */
+        /* Custom styles for a dark look */
         :root {
             --neon-blue: #00ffff;
             --dark-bg: #10101a;
@@ -24,7 +24,7 @@
             line-height: 1.6;
         }
 
-        /* Neon-style accent for key elements */
+        /* Neon-style accent */
         .neon-glow-text {
             color: var(--neon-blue);
             text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
@@ -35,10 +35,9 @@
             box-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
         }
 
-        /* Custom scrollbar for desktop feel */
         ::-webkit-scrollbar {
-            height: 8px; /* For horizontal scrolling */
-            width: 8px; /* For vertical scrolling */
+            height: 8px; 
+            width: 8px; 
         }
 
         ::-webkit-scrollbar-track {
@@ -54,7 +53,6 @@
             background: #3a3a5e;
         }
 
-        /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
         }
@@ -64,7 +62,7 @@
             padding-bottom: 5rem;
         }
 
-        /* Keyframe for subtle blinking text effect */
+        /* Keyframe for blinking text effect */
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.8; }
@@ -74,31 +72,30 @@
             animation: blink 1s step-start infinite;
         }
 
-        /* Styling for the horizontal carousel container */
         .project-carousel {
             display: flex;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
             padding-bottom: 1rem;
-            -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+            -webkit-overflow-scrolling: touch;
         }
 
         .project-card-container {
             flex: 0 0 auto;
-            width: 90vw; /* Take full width on mobile */
+            width: 90vw; 
             scroll-snap-align: start;
-            margin-right: 1.5rem; /* Spacing between cards */
+            margin-right: 1.5rem; 
         }
 
         @media (min-width: 640px) {
             .project-card-container {
-                width: 45vw; /* Half width on small screens */
+                width: 45vw; 
             }
         }
 
         @media (min-width: 1024px) {
             .project-card-container {
-                width: 300px; /* Fixed width on desktop, allowing multiple visible */
+                width: 300px; 
             }
         }
     </style>
@@ -273,7 +270,7 @@
 
             <div class="project-carousel">
 
-                <!-- Card 1: GitHub Project - PowerShell Automation -->
+                <!-- Card 1: GitHub Projects -->
                 <div class="project-card-container">
                     <a href="https://github.com/askjarv" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
                         <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
@@ -289,7 +286,7 @@
                     </a>
                 </div>
 
-                <!-- Card 2: Work Blogs -->
+                <!-- Card 2: Work Blog -->
                 <div class="project-card-container">
                     <a href="https://www.tripwire.com/profile/chris-hudson" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
                         <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
@@ -307,7 +304,7 @@
 
                 <!-- Card 3: Personal Blog -->
                 <div class="project-card-container">
-                    <a href="https://nextnextnextfinished.wordpress.com/" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
+                    <a href="https://askjarv.github.io/nextnextnextfinishedblog" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
                         <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
                             <svg data-lucide="code" class="w-8 h-8 text-neon-blue mb-4"></svg>
                             <h4 class="text-xl font-bold text-gray-100 mb-2">Next-Next-Next->Finished</h4>
@@ -321,7 +318,7 @@
                     </a>
                 </div>
 
-                <!-- Card 4: Hypothetical Case Study (Template) -->
+                <!-- Card 4: Case Study / Whitepaper-->
                 <div class="project-card-container">
                     <a href="FIM and SCM - Return On Investment Whitepaper.pdf" target="_blank" class="block h-full hover:scale-[1.02] transition-transform duration-300">
                         <div class="h-full bg-dark-surface p-6 rounded-xl neon-border/50 hover:border-neon-blue border-transparent transition-colors duration-300">
@@ -337,7 +334,7 @@
                     </a>
                 </div>
 
-                <!-- Note: Add more cards here following the same structure -->
+                <!-- Note: Add more cards here!!  -->
 
             </div>
             <p class="text-center text-gray-600 text-sm mt-4">
@@ -439,11 +436,10 @@
     <!-- Footer -->
     <footer class="mt-12 py-8 border-t border-neon-blue/10 bg-dark-surface/50">
         <div class="container mx-auto px-4 text-center text-sm text-gray-500">
-            <p>2025 Chris Hudson.</p>
+            <p>2026 Chris Hudson.</p>
         </div>
     </footer>
-
-    <!-- JavaScript for smooth scroll and mobile menu -->
+	
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
